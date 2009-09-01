@@ -20,4 +20,4 @@ $(TARGET): $(CPPOBJECTS) $(OSCOBJECTS) $(TUIOOBJECTS) main.cpp
 	g++ $(CXXFLAGS) -lSMT -lpthread $(OSCOBJECTS) $(TUIOOBJECTS) -o $@ main.cpp
 
 clean:
-	rm -f $(TARGET) $(CPPOBJECTS) $(OSCOBJECTS)
+	rm -f $(TARGET) $(CPPOBJECTS) $(OSCOBJECTS) $(TUIOOBJECTS)
