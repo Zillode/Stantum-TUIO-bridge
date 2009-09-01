@@ -53,18 +53,18 @@ void myCallback(SMT_EVENT message, SMT_SENSOR sensor, SMT_CURSOR cursor) {
 		x = (float)SMT_GetCursorX(cursor) / res_width;
 		y = (float)SMT_GetCursorY(cursor) / res_height;
 		v.push_back(SMT_GetCursorID(cursor));
-		tuio_server->addObjSeq(fseq);
+		tuio_server->addCurSeq(fseq);
 		addAlives();
-		tuio_server->addObjSet(SMT_GetCursorID(cursor), SMT_GetCursorID(cursor), x, y, 0, 0, 0, 0, 0, 0);
-		tuio_server->sendObjMessages();
+		tuio_server->addCurSet(SMT_GetCursorID(cursor), x, y, 0, 0, 0);
+		tuio_server->sendCurMessages();
 		break;
 	case SMT_CURSOR_MOVE:
 		x = (float)SMT_GetCursorX(cursor) / res_width;
 		y = (float)SMT_GetCursorY(cursor) / res_height;
-		tuio_server->addObjSeq(fseq);
+		tuio_server->addCurSeq(fseq);
 		addAlives();
-		tuio_server->addObjSet(SMT_GetCursorID(cursor), SMT_GetCursorID(cursor), x, y, 0, 0, 0, 0, 0, 0);
-		tuio_server->sendObjMessages();
+		tuio_server->addCurSet(SMT_GetCursorID(cursor), x, y, 0, 0, 0);
+		tuio_server->sendCurMessages();
 		break;
 	case SMT_CURSOR_UP:
 		for (int i=0; i<v.size(); i++) {
@@ -73,9 +73,9 @@ void myCallback(SMT_EVENT message, SMT_SENSOR sensor, SMT_CURSOR cursor) {
 				break;
 			}
 		}
-		tuio_server->addObjSeq(fseq);
+		tuio_server->addCurSeq(fseq);
 		addAlives();
-		tuio_server->sendObjMessages();
+		tuio_server->sendCurMessages();
 		break;
 	case SMT_CURSOR_DESTROY:
 		break;
@@ -95,7 +95,7 @@ void addAlives() {
 	for (int i=0; i<aliveSize; i++) {
 		aliveList[i] = v[i];
 	}
-	tuio_server->addObjAlive(aliveList,aliveSize);
+	tuio_server->addCurAlive(aliveList,aliveSize);
 	delete [] aliveList;
 }
 
@@ -104,10 +104,9 @@ void *functionThreadAlive(void *) {
 	while (true) {
 	pthread_mutex_lock(&mutex_tuioserver);
 	++fseq;
-	printf("%d\n", fseq);
-	tuio_server->addObjSeq(fseq);
+	tuio_server->addCurSeq(fseq);
 	addAlives();
-	tuio_server->sendObjMessages();
+	tuio_server->sendCurMessages();
 	pthread_mutex_unlock(&mutex_tuioserver);
 	sleep(1);
 	}
