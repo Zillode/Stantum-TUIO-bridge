@@ -44,8 +44,9 @@ Table of contents
 =%=%=%=%=%=%=%=%=%=%=%=%=%=%=%
 
  - POSIX compliant (Linux / MacOSX)
+ - Windows support can very easely be added - You just need to implement the alive threading. Please send your patches, I'll add them to the project.
 
- - make && ./main
+ - make && ./main   (try sudo ./main if the connection to the SMK fails)
 
 
 
