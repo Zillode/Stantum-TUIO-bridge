@@ -17,7 +17,7 @@ CXXFLAGS = $(CFLAGS)
 all: $(TARGET)
 
 $(TARGET): $(CPPOBJECTS) $(OSCOBJECTS) $(TUIOOBJECTS) main.cpp
-	g++ $(CXXFLAGS) -lSMT -lpthread $(OSCOBJECTS) $(TUIOOBJECTS) -o $@ main.cpp
+	g++ $(CXXFLAGS) -Llibsmt-linux -lSMT -lpthread $(OSCOBJECTS) $(TUIOOBJECTS) -o $@ main.cpp
 
 clean:
 	rm -f $(TARGET) $(CPPOBJECTS) $(OSCOBJECTS) $(TUIOOBJECTS)

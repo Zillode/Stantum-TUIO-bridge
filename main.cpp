@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <signal.h>
-#include <SMT.h>
 #ifdef WIN32
 #include <dos.h>
 #include <conio.h>
+// Include SMT header for windows here
 #endif
 #include "TuioServer.h"
 #include <iostream>
 #include <vector>
 #ifndef WIN32
+#include "libsmt-linux/SMT.h"
 #include <pthread.h>
 #endif
 
