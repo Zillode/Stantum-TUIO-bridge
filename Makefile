@@ -16,6 +16,10 @@ CXXFLAGS = $(CFLAGS)
 
 all: $(TARGET)
 
+install: $(TARGET)
+	cp libsmt-linux/libSMT.so /usr/lib/
+	cp main /usr/bin/statum-tuio
+
 $(TARGET): $(CPPOBJECTS) $(OSCOBJECTS) $(TUIOOBJECTS) main.cpp
 	g++ $(CXXFLAGS) -Llibsmt-linux -lSMT -lpthread $(OSCOBJECTS) $(TUIOOBJECTS) -o $@ main.cpp
 

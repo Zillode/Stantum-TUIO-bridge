@@ -47,6 +47,7 @@ Table of contents
  - Windows support can very easely be added - You just need to implement the alive threading. Please send your patches, I'll add them to the project.
 
  - make && ./main   (try sudo ./main if the connection to the SMK fails)
+ - sudo make install (and run 'statum-tuio' - try sudo if the connection to the SMK fails)
 
 
 
