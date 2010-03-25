@@ -1,6 +1,6 @@
                 ********************************
                 *                              *
-                *         Statum-TUIO          *
+                *         Stantum-TUIO         *
                 *                              *
                 *         Version 1.0          *
                 *                              *
@@ -10,7 +10,7 @@
 
 
 This package containts:
-	- Source code for a TUIO implementation for Statum devices
+	- Source code for a TUIO implementation for Stantum devices
 
                              -----
 
@@ -74,7 +74,7 @@ If you make any changes to the source, please mail me the 'diff -u' of the file(
 6. License
 =%=%=%=%=%
 
-TUIO implementation for Statum devices
+TUIO implementation for Stantum devices
 Copyright (C) 2009 Hoste Lode
 
 This program is free software: you can redistribute it and/or modify
