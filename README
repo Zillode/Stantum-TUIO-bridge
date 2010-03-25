@@ -44,11 +44,13 @@ Table of contents
 =%=%=%=%=%=%=%=%=%=%=%=%=%=%=%
 
  - POSIX compliant (Linux / MacOSX)
- - Windows support can very easely be added - You just need to implement the alive threading. Please send your patches, I'll add them to the project.
+	- make && ./main   (try sudo ./main if the connection to the SMK fails)
+	- sudo make install (and run 'statum-tuio' - try sudo if the connection to the SMK fails)
+	- Linux binary can be found at bin/Debug/Stantum-TUIO-Bridge-Linux
 
- - make && ./main   (try sudo ./main if the connection to the SMK fails)
- - sudo make install (and run 'statum-tuio' - try sudo if the connection to the SMK fails)
-
+ - Windows supported
+	- Codeblock project file included
+	- Binary can be found at bin/Debug/Stantum-TUIO-Bridge.exe
 
 
 2. Key bindings / Options
