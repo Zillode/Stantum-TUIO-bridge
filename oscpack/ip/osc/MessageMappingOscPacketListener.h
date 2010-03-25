@@ -27,48 +27,47 @@
 	CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 	WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-#ifndef INCLUDED_IPENDPOINTNAME_H
-#define INCLUDED_IPENDPOINTNAME_H
+#ifndef INCLUDED_MESSAGEMAPPINGOSCPACKETLISTENER_H
+#define INCLUDED_MESSAGEMAPPINGOSCPACKETLISTENER_H
+
+#include <string.h>
+#include <map>
+
+#include "OscPacketListener.h"
 
 
-class IpEndpointName{
-    static unsigned long GetHostByName( const char *s );
+
+namespace osc{
+
+template< class T >
+class MessageMappingOscPacketListener : public OscPacketListener{
 public:
-    static const unsigned long ANY_ADDRESS = 0xFFFFFFFF;
-    static const int ANY_PORT = -1;
+    typedef void (T::*function_type)(const osc::ReceivedMessage&, const IpEndpointName&);
 
-    IpEndpointName()
-		: address( ANY_ADDRESS ), port( ANY_PORT ) {}
-    IpEndpointName( int port_ ) 
-		: address( ANY_ADDRESS ), port( port_ ) {}
-    IpEndpointName( unsigned long ipAddress_, int port_ ) 
-		: address( ipAddress_ ), port( port_ ) {}
-    IpEndpointName( const char *addressName, int port_=ANY_PORT )
-		: address( GetHostByName( addressName ) )
-		, port( port_ ) {}
-    IpEndpointName( int addressA, int addressB, int addressC, int addressD, int port_=ANY_PORT )
-		: address( ( (addressA << 24) | (addressB << 16) | (addressC << 8) | addressD ) )
-		, port( port_ ) {}
+protected:
+    void RegisterMessageFunction( const char *addressPattern, function_type f )
+    {
+        functions_.insert( std::make_pair( addressPattern, f ) );
+    }
 
-	// address and port are maintained in host byte order here
-    unsigned long address;
-    int port;
+    virtual void ProcessMessage( const osc::ReceivedMessage& m,
+		const IpEndpointName& remoteEndpoint )
+    {
+        typename function_map_type::iterator i = functions_.find( m.AddressPattern() );
+        if( i != functions_.end() )
+            (dynamic_cast<T*>(this)->*(i->second))( m, remoteEndpoint );
+    }
+    
+private:
+    struct cstr_compare{
+        bool operator()( const char *lhs, const char *rhs ) const
+            { return strcmp( lhs, rhs ) < 0; }
+    };
 
-	enum { ADDRESS_STRING_LENGTH=17 };
-	void AddressAsString( char *s ) const;
-
-	enum { ADDRESS_AND_PORT_STRING_LENGTH=23};
-	void AddressAndPortAsString( char *s ) const;
+    typedef std::map<const char*, function_type, cstr_compare> function_map_type;
+    function_map_type functions_;
 };
 
-inline bool operator==( const IpEndpointName& lhs, const IpEndpointName& rhs )
-{	
-	return (lhs.address == rhs.address && lhs.port == rhs.port );
-}
+} // namespace osc
 
-inline bool operator!=( const IpEndpointName& lhs, const IpEndpointName& rhs )
-{
-	return !(lhs == rhs);
-}
-
-#endif /* INCLUDED_IPENDPOINTNAME_H */
+#endif /* INCLUDED_MESSAGEMAPPINGOSCPACKETLISTENER_H */

@@ -23,7 +23,7 @@
 #ifdef WIN32
 #include <Winsock2.h>
 #else
-#include <netdb.h>
+//#include <netdb.h>
 #endif
 
 TuioServer::TuioServer(const char* address, int port)
@@ -57,9 +57,9 @@ void TuioServer::addObjSeq(int fseq) {
 void TuioServer::addObjSet(int s_id, int f_id, float x, float y, float a, float X, float Y, float A, float m, float r) {
 	if(invert_x) x=1-x;
 	if(invert_y) y=1-y;
-	if(invert_a) a=TWO_PI-a;
+	if(invert_a) a=(float)TWO_PI-a;
 
-	(*objPacket) << osc::BeginMessage( "/tuio/2Dobj") << "set" 
+	(*objPacket) << osc::BeginMessage( "/tuio/2Dobj") << "set"
 		     << (int)s_id << f_id << x << y << a << X << Y << A << m << r
 	             << osc::EndMessage;
 	objMessages++;
@@ -68,7 +68,7 @@ void TuioServer::addObjSet(int s_id, int f_id, float x, float y, float a, float 
 void TuioServer::addObjAlive(int *id, int size) {
 	(*objPacket) << osc::BeginMessage( "/tuio/2Dobj") << "alive";
 	for (int i=0;i<size;i++)
-		   (*objPacket) << id[i];	
+		   (*objPacket) << id[i];
 	(*objPacket) << osc::EndMessage;
 	objMessages++;
 }
@@ -99,7 +99,7 @@ void TuioServer::addCurSet(int s_id, float x, float y, float X, float Y, float m
 	if(invert_x) x=1-x;
 	if(invert_y) y=1-y;
 
-	(*curPacket) << osc::BeginMessage( "/tuio/2Dcur") << "set" 
+	(*curPacket) << osc::BeginMessage( "/tuio/2Dcur") << "set"
 		     << s_id << x << y << X << Y << m
 	             << osc::EndMessage;
 	curMessages++;
@@ -108,7 +108,7 @@ void TuioServer::addCurSet(int s_id, float x, float y, float X, float Y, float m
 void TuioServer::addCurAlive(int *id, int size) {
 	(*curPacket) << osc::BeginMessage( "/tuio/2Dcur") << "alive";
 	for (int i=0;i<size;i++)
-		   (*curPacket) << id[i];	
+		   (*curPacket) << id[i];
 	(*curPacket) << osc::EndMessage;
 	curMessages++;
 }
@@ -131,7 +131,7 @@ TuioServer::~TuioServer()
 	delete curPacket;
 	delete []objBuffer;
 	delete []curBuffer;
-	
+
 	delete transmitSocket;
 	running=false;
 }

@@ -1,29 +1,44 @@
+//#pragma comment(lib,"ws2_32.lib")
+//#pragma comment(lib, "winmm.lib")
+#include <stdlib.h>
 #include <stdio.h>
 #include <signal.h>
+
+#define OSC_HOST_LITTLE_ENDIAN 1
+
 #ifdef WIN32
-#include <dos.h>
+#include "libsmt-windows/SMT.h"
 #include <conio.h>
-// Include SMT header for windows here
+#include <winsock2.h>
+#include <cstdio>
+#include <string.h>
+#include <windows.h>
+#include <process.h>
 #endif
-#include "TuioServer.h"
-#include <iostream>
-#include <vector>
+
 #ifndef WIN32
 #include "libsmt-linux/SMT.h"
 #include <pthread.h>
 #endif
+
+#include "TuioServer.h"
+#include <iostream>
+#include <vector>
+
 
 const char host[] = "localhost";
 const int port =  3333;
 
 TuioServer *tuio_server;
 static int run = 1;
-static int classID = 2;
 static int fseq = 0;
 static int res_width = 0;
 static int res_height = 0;
 static std::vector<int> v(0);
-#ifndef WIN32
+
+#ifdef WIN32
+HANDLE hMutex;
+#else
 pthread_t threadAlive;
 pthread_mutex_t mutex_tuioserver = PTHREAD_MUTEX_INITIALIZER;
 #endif
@@ -34,7 +49,9 @@ void addAlives();
 void myCallback(SMT_EVENT message, SMT_SENSOR sensor, SMT_CURSOR cursor) {
 	float x = 0;
 	float y = 0;
-#ifndef WIN32
+#ifdef WIN32
+    WaitForSingleObject( hMutex, INFINITE );
+#else
 	pthread_mutex_lock(&mutex_tuioserver);
 #endif
 	++fseq;
@@ -68,7 +85,7 @@ void myCallback(SMT_EVENT message, SMT_SENSOR sensor, SMT_CURSOR cursor) {
 		tuio_server->sendCurMessages();
 		break;
 	case SMT_CURSOR_UP:
-		for (int i=0; i<v.size(); i++) {
+		for (unsigned int i=0; i<v.size(); i++) {
 			if (v[i] == SMT_GetCursorID(cursor)) {
 				v.erase(v.begin()+i);
 				break;
@@ -85,7 +102,9 @@ void myCallback(SMT_EVENT message, SMT_SENSOR sensor, SMT_CURSOR cursor) {
 	default:
 		break;
 	}
-#ifndef WIN32
+#ifdef WIN32
+    ReleaseMutex(hMutex);
+#else
 	pthread_mutex_unlock(&mutex_tuioserver);
 #endif
 }
@@ -100,19 +119,28 @@ void addAlives() {
 	delete [] aliveList;
 }
 
-#ifndef WIN32
-void *functionThreadAlive(void *) {
+#ifdef WIN32
+void functionThreadAlive(void *p) {
+	while (true) {
+    WaitForSingleObject( hMutex, INFINITE );
+#else
+void *functionThreadAlive(void *p) {
 	while (true) {
 	pthread_mutex_lock(&mutex_tuioserver);
+#endif
 	++fseq;
 	tuio_server->addCurSeq(fseq);
 	addAlives();
 	tuio_server->sendCurMessages();
+#ifdef WIN32
+    ReleaseMutex( hMutex );
+	Sleep(1000);
+#else
 	pthread_mutex_unlock(&mutex_tuioserver);
 	sleep(1);
+#endif
 	}
 }
-#endif
 
 void sigintHandler(int i) {
 	run = 0;
@@ -121,21 +149,26 @@ int main(int argc, char *argv[]) {
 	// set up signal handler to exit cleanly
 	signal(SIGINT, sigintHandler);
 	signal(SIGTERM, sigintHandler);
-#ifdef WIN32
-	signal(SIGBREAK, sigintHandler);
-#endif
 	signal(SIGABRT, sigintHandler);
 	printf("opening connection to SMK...\n");
 	// we call SMT_Open with a NULL ID to connect to the first SMK device detected
 	// myCallback will be called for each event that occurs
+//#ifdef WIN32
 	SMT_SENSOR s = SMT_Open(0, 800, 480, myCallback, 0);
+/*#endif
+#ifndef WIN32
+    SMT_SENSOR s = SMT_Open(0,0, 800, 480, myCallback, 0);
+#endif*/
 	if (!s) {
 		// connection will fail if device is already connected to
 		printf("failed opening connection to SMK\n");
 		return 0;
 	}
 	tuio_server = new TuioServer(host, port);
-#ifndef WIN32
+#ifdef WIN32
+    hMutex = CreateMutex( NULL, FALSE, NULL );
+     _beginthread( functionThreadAlive, 0, NULL );
+#else
 	pthread_create( &threadAlive, NULL, &functionThreadAlive, NULL);
 #endif
 	printf("Press CTRL+C to Quit.\n");
@@ -145,7 +178,7 @@ int main(int argc, char *argv[]) {
 		// SMT_Update will return 0 when connection is lost
 		if (!SMT_Update(s)) run = 0;
 #ifdef WIN32
-		if (kbhit() && getch()==0x1B) {
+		if (_kbhit() && _getch()==0x1B) {
 			run = 0;
 		}
 #endif

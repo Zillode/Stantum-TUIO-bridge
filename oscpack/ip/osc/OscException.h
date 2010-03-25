@@ -27,48 +27,28 @@
 	CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 	WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-#ifndef INCLUDED_IPENDPOINTNAME_H
-#define INCLUDED_IPENDPOINTNAME_H
+#ifndef INCLUDED_OSC_EXCEPTION_H
+#define INCLUDED_OSC_EXCEPTION_H
 
+#include <exception>
 
-class IpEndpointName{
-    static unsigned long GetHostByName( const char *s );
+namespace osc{
+
+class Exception : public std::exception {
+    const char *what_;
+    
 public:
-    static const unsigned long ANY_ADDRESS = 0xFFFFFFFF;
-    static const int ANY_PORT = -1;
-
-    IpEndpointName()
-		: address( ANY_ADDRESS ), port( ANY_PORT ) {}
-    IpEndpointName( int port_ ) 
-		: address( ANY_ADDRESS ), port( port_ ) {}
-    IpEndpointName( unsigned long ipAddress_, int port_ ) 
-		: address( ipAddress_ ), port( port_ ) {}
-    IpEndpointName( const char *addressName, int port_=ANY_PORT )
-		: address( GetHostByName( addressName ) )
-		, port( port_ ) {}
-    IpEndpointName( int addressA, int addressB, int addressC, int addressD, int port_=ANY_PORT )
-		: address( ( (addressA << 24) | (addressB << 16) | (addressC << 8) | addressD ) )
-		, port( port_ ) {}
-
-	// address and port are maintained in host byte order here
-    unsigned long address;
-    int port;
-
-	enum { ADDRESS_STRING_LENGTH=17 };
-	void AddressAsString( char *s ) const;
-
-	enum { ADDRESS_AND_PORT_STRING_LENGTH=23};
-	void AddressAndPortAsString( char *s ) const;
+    Exception() throw() {}
+    Exception( const Exception& src ) throw()
+        : what_( src.what_ ) {}
+    Exception( const char *w ) throw()
+        : what_( w ) {}
+    Exception& operator=( const Exception& src ) throw()
+        { what_ = src.what_; return *this; }
+    virtual ~Exception() throw() {}
+    virtual const char* what() const throw() { return what_; }
 };
 
-inline bool operator==( const IpEndpointName& lhs, const IpEndpointName& rhs )
-{	
-	return (lhs.address == rhs.address && lhs.port == rhs.port );
-}
+} // namespace osc
 
-inline bool operator!=( const IpEndpointName& lhs, const IpEndpointName& rhs )
-{
-	return !(lhs == rhs);
-}
-
-#endif /* INCLUDED_IPENDPOINTNAME_H */
+#endif /* INCLUDED_OSC_EXCEPTION_H */

@@ -20,7 +20,7 @@
 #ifndef TUIOSERVER_H
 #define TUIOSERVER_H
 
-#include "oscpack/osc/OscOutboundPacketStream.h"
+#include "oscpack/ip/osc/OscOutboundPacketStream.h"
 #include "oscpack/ip/NetworkingUtils.h"
 #include "oscpack/ip/UdpSocket.h"
 

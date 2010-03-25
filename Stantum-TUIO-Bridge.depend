@@ -1,0 +1,337 @@
+# depslib dependency file v1.0
+1267236385 source:c:\users\lode\desktop\stantum-tuio-bridge\tuioserver.cpp
+	"TuioServer.h"
+	<stdio.h>
+	<iostream>
+	<Winsock2.h>
+
+1265725481 c:\users\lode\desktop\stantum-tuio-bridge\tuioserver.h
+	"oscpack/ip/osc/OscOutboundPacketStream.h"
+	"oscpack/ip/NetworkingUtils.h"
+	"oscpack/ip/UdpSocket.h"
+	"MessageServer.h"
+
+1252181435 c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\osc\oscoutboundpacketstream.h
+	"OscTypes.h"
+	"OscException.h"
+
+1252181435 c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\osc\osctypes.h
+
+1252181435 c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\osc\oscexception.h
+	<exception>
+
+1252181435 c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\networkingutils.h
+
+1265726282 c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\udpsocket.h
+	"NetworkingUtils.h"
+	"IpEndpointName.h"
+
+1252181435 c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\ipendpointname.h
+
+1252181435 c:\users\lode\desktop\stantum-tuio-bridge\messageserver.h
+
+1267239449 source:c:\users\lode\desktop\stantum-tuio-bridge\main.cpp
+	<stdlib.h>
+	<stdio.h>
+	<signal.h>
+	"libsmt-windows/SMT.h"
+	<conio.h>
+	<winsock2.h>
+	<cstdio>
+	<string.h>
+	<windows.h>
+	<process.h>
+	"TuioServer.h"
+	<iostream>
+	<vector>
+	"libsmt-linux/SMT.h"
+	<pthread.h>
+
+1255333260 c:\users\lode\desktop\stantum-tuio-bridge\libsmt-windows\smt.h
+
+1252181435 source:c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\ipendpointname.cpp
+	"IpEndpointName.h"
+	<stdio.h>
+	"NetworkingUtils.h"
+
+1252181435 source:c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\osc\oscoutboundpacketstream.cpp
+	"OscOutboundPacketStream.h"
+	<string.h>
+	<stdlib.h>
+	<assert.h>
+	<iostream>
+	<malloc.h>
+	"OscHostEndianness.h"
+
+1267240640 c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\osc\oschostendianness.h
+
+1252181435 source:c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\osc\oscprintreceivedelements.cpp
+	"OscPrintReceivedElements.h"
+	<iostream>
+	<iomanip>
+	<ctime>
+
+1252181435 c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\osc\oscprintreceivedelements.h
+	<iosfwd>
+	<string.h>
+	"OscReceivedElements.h"
+
+1252181435 c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\osc\oscreceivedelements.h
+	"OscTypes.h"
+	"OscException.h"
+
+1252181435 source:c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\osc\oscreceivedelements.cpp
+	"OscReceivedElements.h"
+	<cassert>
+	"OscHostEndianness.h"
+
+1252181435 source:c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\osc\osctypes.cpp
+	"OscTypes.h"
+
+1265724842 source:c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\win32\networkingutils.cpp
+	"../NetworkingUtils.h"
+	<winsock2.h>
+	<stdlib.h>
+	<stdio.h>
+
+1265725851 source:c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\win32\udpsocket.cpp
+	"../UdpSocket.h"
+	<winsock2.h>
+	<mmsystem.h>
+	<vector>
+	<algorithm>
+	<stdexcept>
+	<assert.h>
+	<signal.h>
+	"../NetworkingUtils.h"
+	"../PacketListener.h"
+	"../TimerListener.h"
+
+1252181435 c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\packetlistener.h
+
+1252181435 c:\users\lode\desktop\stantum-tuio-bridge\oscpack\ip\timerlistener.h
+
+1267236385 source:z:\stantum-tuio-bridge\tuioserver.cpp
+	"TuioServer.h"
+	<stdio.h>
+	<iostream>
+	<Winsock2.h>
+
+1265725481 z:\stantum-tuio-bridge\tuioserver.h
+	"oscpack/ip/osc/OscOutboundPacketStream.h"
+	"oscpack/ip/NetworkingUtils.h"
+	"oscpack/ip/UdpSocket.h"
+	"MessageServer.h"
+
+1252177835 z:\stantum-tuio-bridge\oscpack\ip\osc\oscoutboundpacketstream.h
+	"OscTypes.h"
+	"OscException.h"
+
+1252177835 z:\stantum-tuio-bridge\oscpack\ip\osc\osctypes.h
+
+1252177835 z:\stantum-tuio-bridge\oscpack\ip\osc\oscexception.h
+	<exception>
+
+1252177835 z:\stantum-tuio-bridge\oscpack\ip\networkingutils.h
+
+1265726282 z:\stantum-tuio-bridge\oscpack\ip\udpsocket.h
+	"NetworkingUtils.h"
+	"IpEndpointName.h"
+
+1252177835 z:\stantum-tuio-bridge\oscpack\ip\ipendpointname.h
+
+1252177835 z:\stantum-tuio-bridge\messageserver.h
+
+1267239449 source:z:\stantum-tuio-bridge\main.cpp
+	<stdlib.h>
+	<stdio.h>
+	<signal.h>
+	"libsmt-windows/SMT.h"
+	<conio.h>
+	<winsock2.h>
+	<cstdio>
+	<string.h>
+	<windows.h>
+	<process.h>
+	"TuioServer.h"
+	<iostream>
+	<vector>
+	"libsmt-linux/SMT.h"
+	<pthread.h>
+
+1255329660 z:\stantum-tuio-bridge\libsmt-windows\smt.h
+
+1252177835 source:z:\stantum-tuio-bridge\oscpack\ip\ipendpointname.cpp
+	"IpEndpointName.h"
+	<stdio.h>
+	"NetworkingUtils.h"
+
+1252177835 source:z:\stantum-tuio-bridge\oscpack\ip\osc\oscoutboundpacketstream.cpp
+	"OscOutboundPacketStream.h"
+	<string.h>
+	<stdlib.h>
+	<assert.h>
+	<iostream>
+	<malloc.h>
+	"OscHostEndianness.h"
+
+1267240640 z:\stantum-tuio-bridge\oscpack\ip\osc\oschostendianness.h
+
+1252177835 source:z:\stantum-tuio-bridge\oscpack\ip\osc\oscprintreceivedelements.cpp
+	"OscPrintReceivedElements.h"
+	<iostream>
+	<iomanip>
+	<ctime>
+
+1252177835 z:\stantum-tuio-bridge\oscpack\ip\osc\oscprintreceivedelements.h
+	<iosfwd>
+	<string.h>
+	"OscReceivedElements.h"
+
+1252177835 z:\stantum-tuio-bridge\oscpack\ip\osc\oscreceivedelements.h
+	"OscTypes.h"
+	"OscException.h"
+
+1252177835 source:z:\stantum-tuio-bridge\oscpack\ip\osc\oscreceivedelements.cpp
+	"OscReceivedElements.h"
+	<cassert>
+	"OscHostEndianness.h"
+
+1252177835 source:z:\stantum-tuio-bridge\oscpack\ip\osc\osctypes.cpp
+	"OscTypes.h"
+
+1265724842 source:z:\stantum-tuio-bridge\oscpack\ip\win32\networkingutils.cpp
+	"../NetworkingUtils.h"
+	<winsock2.h>
+	<stdlib.h>
+	<stdio.h>
+
+1265725851 source:z:\stantum-tuio-bridge\oscpack\ip\win32\udpsocket.cpp
+	"../UdpSocket.h"
+	<winsock2.h>
+	<mmsystem.h>
+	<vector>
+	<algorithm>
+	<stdexcept>
+	<assert.h>
+	<signal.h>
+	"../NetworkingUtils.h"
+	"../PacketListener.h"
+	"../TimerListener.h"
+
+1252177835 z:\stantum-tuio-bridge\oscpack\ip\packetlistener.h
+
+1252177835 z:\stantum-tuio-bridge\oscpack\ip\timerlistener.h
+
+1267236385 source:d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\tuioserver.cpp
+	"TuioServer.h"
+	<stdio.h>
+	<iostream>
+	<Winsock2.h>
+
+1265725481 d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\tuioserver.h
+	"oscpack/ip/osc/OscOutboundPacketStream.h"
+	"oscpack/ip/NetworkingUtils.h"
+	"oscpack/ip/UdpSocket.h"
+	"MessageServer.h"
+
+1252181435 d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\osc\oscoutboundpacketstream.h
+	"OscTypes.h"
+	"OscException.h"
+
+1252181435 d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\osc\osctypes.h
+
+1252181435 d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\osc\oscexception.h
+	<exception>
+
+1252181435 d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\networkingutils.h
+
+1265726282 d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\udpsocket.h
+	"NetworkingUtils.h"
+	"IpEndpointName.h"
+
+1252181435 d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\ipendpointname.h
+
+1252181435 d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\messageserver.h
+
+1269524065 source:d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\main.cpp
+	<stdlib.h>
+	<stdio.h>
+	<signal.h>
+	"libsmt-windows/SMT.h"
+	<conio.h>
+	<winsock2.h>
+	<cstdio>
+	<string.h>
+	<windows.h>
+	<process.h>
+	"TuioServer.h"
+	<iostream>
+	<vector>
+	"libsmt-linux/SMT.h"
+	<pthread.h>
+
+1255333260 d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\libsmt-windows\smt.h
+
+1252181435 source:d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\ipendpointname.cpp
+	"IpEndpointName.h"
+	<stdio.h>
+	"NetworkingUtils.h"
+
+1252181435 source:d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\osc\oscoutboundpacketstream.cpp
+	"OscOutboundPacketStream.h"
+	<string.h>
+	<stdlib.h>
+	<assert.h>
+	<iostream>
+	<malloc.h>
+	"OscHostEndianness.h"
+
+1267240640 d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\osc\oschostendianness.h
+
+1252181435 source:d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\osc\oscprintreceivedelements.cpp
+	"OscPrintReceivedElements.h"
+	<iostream>
+	<iomanip>
+	<ctime>
+
+1252181435 d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\osc\oscprintreceivedelements.h
+	<iosfwd>
+	<string.h>
+	"OscReceivedElements.h"
+
+1252181435 d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\osc\oscreceivedelements.h
+	"OscTypes.h"
+	"OscException.h"
+
+1252181435 source:d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\osc\oscreceivedelements.cpp
+	"OscReceivedElements.h"
+	<cassert>
+	"OscHostEndianness.h"
+
+1252181435 source:d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\osc\osctypes.cpp
+	"OscTypes.h"
+
+1265724842 source:d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\win32\networkingutils.cpp
+	"../NetworkingUtils.h"
+	<winsock2.h>
+	<stdlib.h>
+	<stdio.h>
+
+1265725851 source:d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\win32\udpsocket.cpp
+	"../UdpSocket.h"
+	<winsock2.h>
+	<mmsystem.h>
+	<vector>
+	<algorithm>
+	<stdexcept>
+	<assert.h>
+	<signal.h>
+	"../NetworkingUtils.h"
+	"../PacketListener.h"
+	"../TimerListener.h"
+
+1252181435 d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\packetlistener.h
+
+1252181435 d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\timerlistener.h
+
