@@ -153,12 +153,7 @@ int main(int argc, char *argv[]) {
 	printf("opening connection to SMK...\n");
 	// we call SMT_Open with a NULL ID to connect to the first SMK device detected
 	// myCallback will be called for each event that occurs
-//#ifdef WIN32
 	SMT_SENSOR s = SMT_Open(0, 800, 480, myCallback, 0);
-/*#endif
-#ifndef WIN32
-    SMT_SENSOR s = SMT_Open(0,0, 800, 480, myCallback, 0);
-#endif*/
 	if (!s) {
 		// connection will fail if device is already connected to
 		printf("failed opening connection to SMK\n");
