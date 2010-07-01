@@ -73,7 +73,13 @@ If you make any changes to the source, please mail me the 'diff -u' of the file(
 
 
 
-6. License
+4. Credits
+=%=%=%=%=%
+ - Windows support was added with cooperation of Minh Nguyen.
+
+
+
+5. License
 =%=%=%=%=%
 
 TUIO implementation for Stantum devices
