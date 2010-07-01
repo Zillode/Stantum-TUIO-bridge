@@ -335,3 +335,96 @@
 
 1252181435 d:\documents and settings\lode\mijn documenten\stantum-tuio-bridge\oscpack\ip\timerlistener.h
 
+1271881949 source:y:\school\thesis\multitouch\stantum-tuio-bridge\tuioserver.cpp
+	"TuioServer.h"
+	<stdio.h>
+	<iostream>
+	<Winsock2.h>
+
+1271881949 y:\school\thesis\multitouch\stantum-tuio-bridge\tuioserver.h
+	"oscpack/ip/osc/OscOutboundPacketStream.h"
+	"oscpack/ip/NetworkingUtils.h"
+	"oscpack/ip/UdpSocket.h"
+	"MessageServer.h"
+
+1271881949 y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\osc\oscoutboundpacketstream.h
+	"OscTypes.h"
+	"OscException.h"
+
+1271881949 y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\osc\osctypes.h
+
+1271881949 y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\osc\oscexception.h
+	<exception>
+
+1271881949 y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\networkingutils.h
+
+1271881949 y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\udpsocket.h
+	"NetworkingUtils.h"
+	"IpEndpointName.h"
+
+1271881949 y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\ipendpointname.h
+
+1271881949 y:\school\thesis\multitouch\stantum-tuio-bridge\messageserver.h
+
+1271881949 source:y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\ipendpointname.cpp
+	"IpEndpointName.h"
+	<stdio.h>
+	"NetworkingUtils.h"
+
+1271881949 source:y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\osc\oscoutboundpacketstream.cpp
+	"OscOutboundPacketStream.h"
+	<string.h>
+	<stdlib.h>
+	<assert.h>
+	<iostream>
+	<malloc.h>
+	"OscHostEndianness.h"
+
+1271881949 y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\osc\oschostendianness.h
+
+1271881949 source:y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\osc\oscprintreceivedelements.cpp
+	"OscPrintReceivedElements.h"
+	<iostream>
+	<iomanip>
+	<ctime>
+
+1271881949 y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\osc\oscprintreceivedelements.h
+	<iosfwd>
+	<string.h>
+	"OscReceivedElements.h"
+
+1271881949 y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\osc\oscreceivedelements.h
+	"OscTypes.h"
+	"OscException.h"
+
+1271881949 source:y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\osc\oscreceivedelements.cpp
+	"OscReceivedElements.h"
+	<cassert>
+	"OscHostEndianness.h"
+
+1271881949 source:y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\osc\osctypes.cpp
+	"OscTypes.h"
+
+1271881949 source:y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\win32\networkingutils.cpp
+	"../NetworkingUtils.h"
+	<winsock2.h>
+	<stdlib.h>
+	<stdio.h>
+
+1271881949 source:y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\win32\udpsocket.cpp
+	"../UdpSocket.h"
+	<winsock2.h>
+	<mmsystem.h>
+	<vector>
+	<algorithm>
+	<stdexcept>
+	<assert.h>
+	<signal.h>
+	"../NetworkingUtils.h"
+	"../PacketListener.h"
+	"../TimerListener.h"
+
+1271881949 y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\packetlistener.h
+
+1271881949 y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\timerlistener.h
+
