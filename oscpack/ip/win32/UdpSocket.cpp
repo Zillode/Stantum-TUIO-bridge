@@ -27,10 +27,10 @@
 	CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 	WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-#include "../UdpSocket.h"
+#include "ip/UdpSocket.h"
 
 #include <winsock2.h>   // this must come first to prevent errors with MSVC7
-//#include <windows.h>
+#include <windows.h>
 #include <mmsystem.h>   // for timeGetTime()
 
 #include <vector>
@@ -39,9 +39,9 @@
 #include <assert.h>
 #include <signal.h>
 
-#include "../NetworkingUtils.h"
-#include "../PacketListener.h"
-#include "../TimerListener.h"
+#include "ip/NetworkingUtils.h"
+#include "ip/PacketListener.h"
+#include "ip/TimerListener.h"
 
 
 typedef int socklen_t;

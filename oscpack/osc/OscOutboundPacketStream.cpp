@@ -29,11 +29,9 @@
 */
 #include "OscOutboundPacketStream.h"
 
-
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
-#include <iostream>
 
 #if defined(__WIN32__) || defined(WIN32)
 #include <malloc.h> // for alloca
@@ -190,10 +188,8 @@ void OutboundPacketStream::EndElement( char *endPtr )
         // while building an element, an offset to the containing element's
         // size slot is stored in the elements size slot (or a ptr to data_
         // if there is no containing element). We retrieve that here
-        //uint32 *previousElementSizePtr =
-        //        (uint32*)(data_ + *reinterpret_cast<uint32*>(elementSizePtr_));
-
-	uint32 *previousElementSizePtr =  (uint32*)(data_ + *elementSizePtr_);
+        uint32 *previousElementSizePtr =
+                (uint32*)(data_ + *reinterpret_cast<uint32*>(elementSizePtr_));
 
         // then we store the element size in the slot, note that the element
         // size does not include the size slot, hence the - 4 below.

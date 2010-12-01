@@ -6,9 +6,9 @@
 TARGET = main
 CPPSOURCES = $(shell ls *.cpp)
 PPOBJECTS = $(CPPSOURCES:.cpp=.o)
-OSCSOURCES = $(shell ls oscpack/ip/posix/*.cpp oscpack/osc/*.cpp)
+OSCSOURCES = ./oscpack/osc/OscTypes.cpp ./oscpack/osc/OscOutboundPacketStream.cpp ./oscpack/osc/OscReceivedElements.cpp ./oscpack/osc/OscPrintReceivedElements.cpp ./oscpack/ip/posix/NetworkingUtils.cpp ./oscpack/ip/posix/UdpSocket.cpp
 OSCOBJECTS = $(OSCSOURCES:.cpp=.o)
-TUIOSOURCES = TuioServer.cpp
+TUIOSOURCES = ./TUIO/TuioClient.cpp ./TUIO/TuioServer.cpp ./TUIO/TuioTime.cpp
 TUIOOBJECTS = $(TUIOSOURCES:.cpp=.o)
 INCLUDES = -Ioscpack
 CFLAGS = -m32 -DLINUX -DOSC_HOST_LITTLE_ENDIAN -DNDEBUG -DPMALSA $(INCLUDES)
