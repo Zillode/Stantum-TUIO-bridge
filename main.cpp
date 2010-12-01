@@ -14,6 +14,7 @@
 #define RES_X 800
 #define RES_Y 480
 #define OSC_HOST_LITTLE_ENDIAN 1
+#define MAX_FINGERS 50
 
 #ifdef WIN32
 #include "libsmt-windows/SMT.h"
@@ -41,10 +42,10 @@ static int fseq = 0;
 static int res_width = 0;
 static int res_height = 0;
 static std::vector<int> v(0);
-static std::map<int, float> old_x;
-static std::map<int, float> old_y;
-static std::map<int, time_t> old_time;
-static std::map<int, double> old_speed;
+static float old_x[MAX_FINGERS];
+static float old_y[MAX_FINGERS];
+static double old_time[MAX_FINGERS];
+static float old_speed[MAX_FINGERS];
 
 
 #ifdef WIN32
@@ -60,16 +61,20 @@ float distance(float dX0, float dY0, float dX1, float dY1);
 
 // myCallback will receive all events from the sensor
 void myCallback(SMT_EVENT message, SMT_SENSOR sensor, SMT_CURSOR cursor) {
-	int c = SMT_GetCursorID(cursor);
+	int c = (int)SMT_GetCursorID(cursor) % MAX_FINGERS;
 	float x = 0;
 	float y = 0;
 	float dx = 0;
 	float dy = 0;
 	float dt = 0;
+	float xspeed = 0;
+	float yspeed = 0;
 	float m = 0;
+	float speed = 0;
+	float dist = 0;
 	struct timeval curr_time;
 	gettimeofday(&curr_time, NULL);
-	double seconds = curr_time.tv_usec / 1000;
+	double seconds = curr_time.tv_sec + ((double)curr_time.tv_usec / 1000000);
 #ifdef WIN32
 	WaitForSingleObject( hMutex, INFINITE );
 #else
@@ -102,25 +107,37 @@ void myCallback(SMT_EVENT message, SMT_SENSOR sensor, SMT_CURSOR cursor) {
 			tuio_server->sendCurMessages();
 			break;
 		case SMT_CURSOR_MOVE:
+			dt = seconds - old_time[c];
 			x = (float)SMT_GetCursorX(cursor) / res_width;
 			y = (float)SMT_GetCursorY(cursor) / res_height;
-				dt = difftime(seconds, old_time[c]);
-			dx = fabs(old_x[c] - x) / dt;
-			dy = fabs(old_y[c] - y) / dt;
-			m = ((distance(old_x[c], old_y[c], x, y) / dt) - old_speed[c]) / dt;
-			//printf("--- %f %f %f %f\n", old_x[c], old_y[c], x, y);
-			//printf("--- %f\n", dt);
-			//printf("%f %f %f %f %f\n", x, y, dx, dy, m);
+			dx = x - old_x[c];
+			dy = y - old_y[c];
+			dist = sqrt(dx*dx+dy*dy);
+			speed = dist/dt;
+			xspeed = dx/dt;
+			yspeed = dy/dt;
+			m = (speed-old_speed[c])/dt;
+			//dx = (x - old_x[c]) / dt;
+			//dy = (y - old_y[c]) / dt;
+			//speed = distance(old_x[c], old_y[c], x, y) / dt;
+			//m = (speed - old_speed[c]) / dt;
+
+			//printf("Secs: %f %f %f\n", seconds, old_time[c], dt);
 			old_x[c] = x;
 			old_y[c] = y;
 			old_time[c] = seconds;
-			old_speed[c] = m;
+			old_speed[c] = speed;
+			printf("C: %d %f\n", c, old_time[c]);
+			//printf("Secs: %f %f %f", seconds, old_time[c], dt);
+
+			printf("--- %f %f %f %f %f\n", x, y, xspeed, yspeed, m);
 			tuio_server->addCurSeq(fseq);
 			addAlives();
-			tuio_server->addCurSet(c, x, y, dx, dy, m);
+			tuio_server->addCurSet(c, x, y, xspeed, yspeed, m);
 			tuio_server->sendCurMessages();
 			break;
 		case SMT_CURSOR_UP:
+			printf("UP\n");
 			for (unsigned int i=0; i<v.size(); i++) {
 				if (v[i] == c) {
 					v.erase(v.begin()+i);
