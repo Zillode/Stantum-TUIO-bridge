@@ -83,7 +83,7 @@ If you make any changes to the source, please mail me the 'diff -u' of the file(
 =%=%=%=%=%
 
 TUIO implementation for Stantum devices
-Copyright (C) 2009 Hoste Lode
+Copyright (C) 2009-2011 Hoste Lode
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

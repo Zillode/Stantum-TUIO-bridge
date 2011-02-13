@@ -5,7 +5,9 @@
 #include <sys/time.h>
 #include <signal.h>
 #ifdef WIN32
-#include "libsmt-windows/SMT.h"
+#include <SMT.h>
+#include <conio.h>
+#include <ctype.h>
 #endif
 #ifndef WIN32
 #include "libsmt-linux/SMT.h"
@@ -107,11 +109,11 @@ int main(int argc, char *argv[]) {
 	printf("opening connection to SMK...\n");
 	// we call SMT_Open with a NULL ID to connect to the first SMK device detected
 	// myCallback will be called for each event that occurs
-#ifdef WIN32
-	SMT_SENSOR s = SMT_Open(0, 0, RES_X, RES_Y, myCallback, 0);
-#else
+//#ifdef OTHER_STANTUM_V0.5
+//	SMT_SENSOR s = SMT_Open(0, 0, RES_X, RES_Y, myCallback, 0);
+//#else
 	SMT_SENSOR s = SMT_Open(0, RES_X, RES_Y, myCallback, 0);
-#endif
+//#endif
 	if (!s) {
 		// connection will fail if device is already connected to
 		printf("failed opening connection to SMK\n");

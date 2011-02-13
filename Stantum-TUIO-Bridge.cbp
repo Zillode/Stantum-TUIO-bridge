@@ -14,11 +14,15 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="C:\SMT" />
+					<Add directory="oscpack" />
 				</Compiler>
 				<Linker>
 					<Add option="-lws2_32" />
 					<Add option="-lwinmm" />
 					<Add library="libsmt-windows\libSMT.lib" />
+					<Add directory="oscpack\ip\win32" />
+					<Add directory="TUIO" />
+					<Add directory="libsmt-windows" />
 				</Linker>
 				<ExtraCommands>
 					<Add after='cmd /c copy &quot;$(PROJECT_DIR)libsmt-windows\libSMT.dll&quot; &quot;$(PROJECT_DIR)bin\Debug\' />
@@ -42,11 +46,23 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="MessageServer.h" />
-		<Unit filename="TuioServer.cpp" />
-		<Unit filename="TuioServer.h" />
-		<Unit filename="libsmt-windows\SMT.h" />
-		<Unit filename="libsmt-windows\libSMT.dll" />
-		<Unit filename="libsmt-windows\libSMT.lib" />
+		<Unit filename="TUIO\TuioClient.cpp" />
+		<Unit filename="TUIO\TuioClient.h" />
+		<Unit filename="TUIO\TuioContainer.h" />
+		<Unit filename="TUIO\TuioCursor.h" />
+		<Unit filename="TUIO\TuioListener.h" />
+		<Unit filename="TUIO\TuioObject.h" />
+		<Unit filename="TUIO\TuioPoint.h" />
+		<Unit filename="TUIO\TuioServer.cpp" />
+		<Unit filename="TUIO\TuioServer.h" />
+		<Unit filename="TUIO\TuioTime.cpp" />
+		<Unit filename="TUIO\TuioTime.h" />
+		<Unit filename="libsmt-windows\libSMT.dll">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="libsmt-windows\libSMT.lib">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="main.cpp" />
 		<Unit filename="oscpack\ip\IpEndpointName.cpp" />
 		<Unit filename="oscpack\ip\IpEndpointName.h" />
@@ -54,20 +70,20 @@
 		<Unit filename="oscpack\ip\PacketListener.h" />
 		<Unit filename="oscpack\ip\TimerListener.h" />
 		<Unit filename="oscpack\ip\UdpSocket.h" />
-		<Unit filename="oscpack\ip\osc\MessageMappingOscPacketListener.h" />
-		<Unit filename="oscpack\ip\osc\OscException.h" />
-		<Unit filename="oscpack\ip\osc\OscHostEndianness.h" />
-		<Unit filename="oscpack\ip\osc\OscOutboundPacketStream.cpp" />
-		<Unit filename="oscpack\ip\osc\OscOutboundPacketStream.h" />
-		<Unit filename="oscpack\ip\osc\OscPacketListener.h" />
-		<Unit filename="oscpack\ip\osc\OscPrintReceivedElements.cpp" />
-		<Unit filename="oscpack\ip\osc\OscPrintReceivedElements.h" />
-		<Unit filename="oscpack\ip\osc\OscReceivedElements.cpp" />
-		<Unit filename="oscpack\ip\osc\OscReceivedElements.h" />
-		<Unit filename="oscpack\ip\osc\OscTypes.cpp" />
-		<Unit filename="oscpack\ip\osc\OscTypes.h" />
 		<Unit filename="oscpack\ip\win32\NetworkingUtils.cpp" />
 		<Unit filename="oscpack\ip\win32\UdpSocket.cpp" />
+		<Unit filename="oscpack\osc\MessageMappingOscPacketListener.h" />
+		<Unit filename="oscpack\osc\OscException.h" />
+		<Unit filename="oscpack\osc\OscHostEndianness.h" />
+		<Unit filename="oscpack\osc\OscOutboundPacketStream.cpp" />
+		<Unit filename="oscpack\osc\OscOutboundPacketStream.h" />
+		<Unit filename="oscpack\osc\OscPacketListener.h" />
+		<Unit filename="oscpack\osc\OscPrintReceivedElements.cpp" />
+		<Unit filename="oscpack\osc\OscPrintReceivedElements.h" />
+		<Unit filename="oscpack\osc\OscReceivedElements.cpp" />
+		<Unit filename="oscpack\osc\OscReceivedElements.h" />
+		<Unit filename="oscpack\osc\OscTypes.cpp" />
+		<Unit filename="oscpack\osc\OscTypes.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

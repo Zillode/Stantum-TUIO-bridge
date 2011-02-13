@@ -428,3 +428,168 @@
 
 1271881949 y:\school\thesis\multitouch\stantum-tuio-bridge\oscpack\ip\timerlistener.h
 
+1297616825 source:o:\sync\tei\tei demo\stantum-tuio-bridge\main.cpp
+	<stdlib.h>
+	<stdio.h>
+	<iostream>
+	<time.h>
+	<sys/time.h>
+	<signal.h>
+	<SMT.h>
+	<conio.h>
+	<ctype.h>
+	"libsmt-linux/SMT.h"
+	"TUIO/Tuiocursor.h"
+	"TUIO/TuioServer.h"
+
+1290091001 o:\sync\tei\tei demo\stantum-tuio-bridge\libsmt-windows\smt.h
+
+1290091001 o:\sync\tei\tei demo\stantum-tuio-bridge\libsmt-linux\smt.h
+
+1291198589 o:\sync\tei\tei demo\stantum-tuio-bridge\tuio\tuiocursor.h
+	<math.h>
+	"TuioContainer.h"
+
+1291198589 o:\sync\tei\tei demo\stantum-tuio-bridge\tuio\tuiocontainer.h
+	<list>
+	<math.h>
+	"TuioPoint.h"
+	<iostream>
+
+1291198589 o:\sync\tei\tei demo\stantum-tuio-bridge\tuio\tuiopoint.h
+	"TuioTime.h"
+	<iostream>
+
+1291198590 o:\sync\tei\tei demo\stantum-tuio-bridge\tuio\tuiotime.h
+	<pthread.h>
+	<sys/time.h>
+	<windows.h>
+
+1292254873 o:\sync\tei\tei demo\stantum-tuio-bridge\tuio\tuioserver.h
+	<pthread.h>
+	<sys/time.h>
+	<windows.h>
+	<iostream>
+	<list>
+	<algorithm>
+	"osc/OscOutboundPacketStream.h"
+	"ip/NetworkingUtils.h"
+	"ip/UdpSocket.h"
+	"TuioObject.h"
+	"TuioCursor.h"
+
+1291198684 o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\osc\oscoutboundpacketstream.h
+	"OscTypes.h"
+	"OscException.h"
+
+1291198685 o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\osc\osctypes.h
+
+1291198684 o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\osc\oscexception.h
+	<exception>
+
+1291198682 o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\ip\networkingutils.h
+
+1291198684 o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\ip\udpsocket.h
+	"NetworkingUtils.h"
+	"IpEndpointName.h"
+
+1291198682 o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\ip\ipendpointname.h
+
+1291198589 o:\sync\tei\tei demo\stantum-tuio-bridge\tuio\tuioobject.h
+	<math.h>
+	"TuioContainer.h"
+
+1291198681 source:o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\ip\ipendpointname.cpp
+	"IpEndpointName.h"
+	<stdio.h>
+	"NetworkingUtils.h"
+
+1291198684 source:o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\ip\win32\networkingutils.cpp
+	"ip/NetworkingUtils.h"
+	<winsock2.h>
+	<windows.h>
+	<stdlib.h>
+	<stdio.h>
+
+1291198684 source:o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\ip\win32\udpsocket.cpp
+	"ip/UdpSocket.h"
+	<winsock2.h>
+	<windows.h>
+	<mmsystem.h>
+	<vector>
+	<algorithm>
+	<stdexcept>
+	<assert.h>
+	<signal.h>
+	"ip/NetworkingUtils.h"
+	"ip/PacketListener.h"
+	"ip/TimerListener.h"
+
+1291198682 o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\ip\packetlistener.h
+
+1291198683 o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\ip\timerlistener.h
+
+1291198589 source:o:\sync\tei\tei demo\stantum-tuio-bridge\tuio\tuioclient.cpp
+	"TuioClient.h"
+
+1291198589 o:\sync\tei\tei demo\stantum-tuio-bridge\tuio\tuioclient.h
+	<pthread.h>
+	<sys/time.h>
+	<windows.h>
+	<iostream>
+	<list>
+	<algorithm>
+	<cstring>
+	"osc/OscReceivedElements.h"
+	"osc/OscPrintReceivedElements.h"
+	"ip/UdpSocket.h"
+	"ip/PacketListener.h"
+	"TuioListener.h"
+	"TuioObject.h"
+	"TuioCursor.h"
+
+1291198589 o:\sync\tei\tei demo\stantum-tuio-bridge\tuio\tuiolistener.h
+	"TuioObject.h"
+	"TuioCursor.h"
+
+1291198589 source:o:\sync\tei\tei demo\stantum-tuio-bridge\tuio\tuioserver.cpp
+	"TuioServer.h"
+
+1291198590 source:o:\sync\tei\tei demo\stantum-tuio-bridge\tuio\tuiotime.cpp
+	"TuioTime.h"
+
+1291198684 source:o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\osc\oscoutboundpacketstream.cpp
+	"OscOutboundPacketStream.h"
+	<string.h>
+	<stdlib.h>
+	<assert.h>
+	<malloc.h>
+	"OscHostEndianness.h"
+
+1291198684 o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\osc\oschostendianness.h
+
+1291198685 source:o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\osc\oscprintreceivedelements.cpp
+	"OscPrintReceivedElements.h"
+	<iostream>
+	<iomanip>
+	<ctime>
+
+1291198685 o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\osc\oscprintreceivedelements.h
+	<iosfwd>
+	<string.h>
+	"OscReceivedElements.h"
+
+1291198685 o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\osc\oscreceivedelements.h
+	"OscTypes.h"
+	"OscException.h"
+
+1291198685 source:o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\osc\oscreceivedelements.cpp
+	"OscReceivedElements.h"
+	<cassert>
+	"OscHostEndianness.h"
+
+1291198685 source:o:\sync\tei\tei demo\stantum-tuio-bridge\oscpack\osc\osctypes.cpp
+	"OscTypes.h"
+
+1212082332 c:\smt\smt.h
+
